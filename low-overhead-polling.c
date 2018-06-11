@@ -111,7 +111,7 @@ static void setup_protection_handler() {
   action.sa_flags = SA_SIGINFO;
   action.sa_sigaction = protection_handler;
   if (sigaction(SIGBUS, &action, NULL) != 0) {
-    fprintf(stderr, "error setting up segfault handler: %s\n", strerror(errno));
+    fprintf(stderr, "error setting up bus error handler: %s\n", strerror(errno));
     abort();
   }
 }
